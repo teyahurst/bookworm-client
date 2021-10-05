@@ -40,7 +40,7 @@ class HomePage extends Component {
         e.preventDefault();
 
         let filter = (this.state.bookType !== 'no-filter') ? ('&filter='+this.state.bookType):"";
-        let key = 'AIzaSyAvZjgr_XPOr_zYnkSX6H4sy1ukBhMQiT4'
+        let key = ''
         let url = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}&printType=${this.state.printType}${filter}&key=${key}`;
         console.log(url)
 
