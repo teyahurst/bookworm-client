@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Header from '../Header/Header';
 import Search from '../Search/SearchForm';
-import Results from '../Search/SearchResults';
+import SearchResults from '../Search/SearchResults';
 
 class HomePage extends Component {
     constructor(props){
@@ -80,7 +80,7 @@ class HomePage extends Component {
                     setBookType={bookType => this.setBookType(bookType)}
                 />
 
-                <Results
+                <SearchResults
                     bookResults={this.state.bookResults}
                 />
             </div>

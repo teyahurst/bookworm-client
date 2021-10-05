@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from '../Book/Book';
 
-function Results(props){
+function SearchResults(props){
     console.log(props)
 
     return (
@@ -20,4 +20,4 @@ function Results(props){
     )
 }
 
-export default Results;
+export default SearchResults;

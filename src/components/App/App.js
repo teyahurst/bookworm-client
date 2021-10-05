@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
-import LoginForm from '../LoginForm/LoginForm'
-import RegistrationForm from '../RegistrationForm/RegistrationForm'
+import LoginPage from '../LoginForm/LoginForm'
+import RegistrationPage from '../RegistrationForm/RegistrationForm'
 import HomePage from '../HomePage/HomePage'
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 
 
 class App extends React.Component {
@@ -17,9 +18,7 @@ class App extends React.Component {
   }
 
 
-  componentDidMount() {
-    
-  }
+ 
 
   render() {
     return (
@@ -27,18 +26,23 @@ class App extends React.Component {
         <main className='App-Main'>
           {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
           <Switch>
+            <Route 
+              path={'/'}
+              component={HomePage}/>
+
             <Route
               path={'/register'}
-              component={RegistrationForm}
+              component={RegistrationPage}
               />
 
             <Route 
               path={'/login'}
-              component={LoginForm}/>
+              component={LoginPage}/>
 
             <Route 
-              path={'/'}
-              component={HomePage}/>
+              component={NotFoundPage}/>
+
+            
             
           </Switch>
         </main>
