@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from '../Header/Header';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import Search from '../Search/SearchForm';
 import SearchResults from '../Search/SearchResults';
 
@@ -67,6 +68,10 @@ class HomePage extends Component {
             })
     }
 
+    handleAddBook(book){
+        //put post request for books here
+    }
+
     render(){
         console.log(this.state)
 
@@ -82,7 +87,9 @@ class HomePage extends Component {
 
                 <SearchResults
                     bookResults={this.state.bookResults}
+                    addBook={this.handleAddBook}
                 />
+                
             </div>
         )
     }
