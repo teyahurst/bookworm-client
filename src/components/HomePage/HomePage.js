@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Header from '../Header/Header';
-import ProfilePage from '../ProfilePage/ProfilePage';
 import Search from '../Search/SearchForm';
 import SearchResults from '../Search/SearchResults';
 
@@ -69,7 +68,7 @@ class HomePage extends Component {
     }
 
     handleAddBook(book){
-        //put post request for books here
+        //put post request for addbooks here
     }
 
     render(){
