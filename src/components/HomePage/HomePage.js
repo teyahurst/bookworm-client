@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ProfilePage from '../ProfilePage/ProfilePage';
 import Search from '../Search/SearchForm';
 import SearchResults from '../Search/SearchResults';
 
