@@ -1,10 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import Header from '../Header/Header'
 import LoginPage from '../LoginForm/LoginForm'
 import RegistrationPage from '../RegistrationForm/RegistrationForm'
 import HomePage from '../HomePage/HomePage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import ProfilePage from '../ProfilePage/ProfilePage'
+import PrivateRoute from '../../Utils/PrivateRoute';
+import PublicOnlyRoute from '../../Utils/PublicOnlyRoute';
 
 
 class App extends React.Component {
@@ -23,24 +26,38 @@ class App extends React.Component {
     //put fetch statement to get the username from the api here
   }
 
-  renderMain() {
-
-    return(
-    <div className='main'>
-      <Route exact path={'/'} component={HomePage}/>
-      <Route path={'/login'} component={LoginPage}/>
-      <Route path={'/register'} component={RegistrationPage}/>
-      <Route path={'/PageNotFound'} component={NotFoundPage}/>
-      <Route path={'/user/:userName'} component={ProfilePage}/>
-    </div>
-    )}
- 
-
   render() {
     return (
       <div className='App'>
-        <main className='App-Main'>
-          {this.renderMain()}
+        <header className='App-header'>
+          <Header/>
+        </header>
+        <main className='App-main'>
+          <Switch>
+            <Route 
+              exact
+              path={'/'}
+              component={HomePage}
+              />
+
+              <PublicOnlyRoute
+                path={'/login'}
+                component={LoginPage}
+                />
+
+              <PublicOnlyRoute
+                path={'/register'}
+                component={RegistrationPage}
+                />
+
+              <PrivateRoute 
+                path={'/:user_name'}
+                component={ProfilePage}
+                />
+                <Route 
+                  component={NotFoundPage}
+                  />
+          </Switch>
         </main>
       </div>
     )

@@ -16,6 +16,7 @@ function SearchResults(props){
                             author={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             addBook={props.addBook}
+                            removeBook={props.removeBook}
                             />
                 )
             })}

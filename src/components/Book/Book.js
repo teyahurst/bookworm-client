@@ -8,6 +8,7 @@ function Book(props){
             <h3>Author: {props.author}</h3>
             <p>{props.description}</p>
             <button onClick={props.addBook}>Add Book</button>
+            <button onClick={props.removeBook}>Remove Book</button>
         </li>
     )
 }

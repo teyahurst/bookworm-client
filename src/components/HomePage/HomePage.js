@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import Header from '../Header/Header';
+import ProfilePage from '../ProfilePage/ProfilePage';
 import Search from '../Search/SearchForm';
 import SearchResults from '../Search/SearchResults';
 
@@ -13,7 +12,8 @@ class HomePage extends Component {
             printType: 'all',
             bookType: 'no-filter',
             bookResults: [],
-            err: 'null'
+            err: 'null',
+            myBooks: [],
         }
     }
 
@@ -67,8 +67,10 @@ class HomePage extends Component {
             })
     }
 
-    handleAddBook(book){
-        //put post request for addbooks here
+    setAddBook(book){
+        this.setState({
+            myBooks: book
+        })
     }
 
     render(){
@@ -76,7 +78,6 @@ class HomePage extends Component {
 
         return (
             <div className='home-page'>
-                <Header />
                 <Search
                     handleSubmitSearch={e => this.handleSubmitSearch(e)}
                     setSearchTerm={searchTerm => this.setSearchTerm(searchTerm)}
@@ -87,7 +88,10 @@ class HomePage extends Component {
                 <SearchResults
                     bookResults={this.state.bookResults}
                     addBook={this.handleAddBook}
+                    removeBook={this.handleRemoveBook}
                 />
+
+                
                 
             </div>
         )
