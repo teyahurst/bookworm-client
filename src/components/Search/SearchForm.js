@@ -13,12 +13,7 @@ function Search(props){
 
             {/* filters */}
             <div className='Filter-Box'>
-                <label htmlFor='printType'>Print Type: </label>
-                <select id='printType' onChange={e => props.setPrintType(e.target.value)}>
-                    <option value='all'>All</option>
-                    <option value='books'>Books</option>
-                    <option value='magazines'>Magazines</option>
-                </select>
+                
 
                 <label htmlFor='Booktype'>Book Type: </label>
                 <select id='bookType' onChange={e => props.setBookType(e.target.value)}>

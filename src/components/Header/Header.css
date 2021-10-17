@@ -1,0 +1,17 @@
+h1 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 48px;
+    text-align: center;
+    display: flex;
+    width: 50%;
+}
+
+header a:link, a:visited{
+    text-decoration: none;
+    color: rgb(31,30,30)
+}
+
+div.header-not-logged-in{
+    display: flex;
+    width: 50%;
+}
