@@ -14,7 +14,7 @@ export default class Book extends React.Component {
         fetch(`${config.API_ENDPOINT}/${user_name}/books`, {
             method: 'POST',
             headers: {
-                'Authorization': `bearer ${TokenService.getAuthToken()}`,
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json',
             },
             body: JSON.stringify(book)
