@@ -17,7 +17,7 @@ export default class ProfilePage extends Component {
     componentDidMount(){
         const { user_name } = this.context
         
-        fetch(`${config.REACT_APP_BASE_URL}/${user_name}/books`)
+        fetch(`${config.API_ENDPOINT}/${user_name}/books`)
             .then(res => res.json())
             .then(books => {
                 this.setState({
