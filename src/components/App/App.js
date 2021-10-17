@@ -8,37 +8,51 @@ import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import ProfilePage from '../ProfilePage/ProfilePage'
 import PrivateRoute from '../../Utils/PrivateRoute';
 import PublicOnlyRoute from '../../Utils/PublicOnlyRoute';
+import ApiContext from '../../ApiContext';
 
 
 class App extends React.Component {
   state = {
-    hasError: true,
-    userName: 'Dunder',
-    password: 'Password'
+    user_name: '',
+    isLoggedIn: false
   }
 
-  static getDerivedStateFromError(error) {
-    console.error(error)
-    return { hasError: true }
+
+
+  setUserName = user_name => {
+    this.setState({
+      user_name
+    })
   }
 
-  componentDidMount(){
-    //put fetch statement to get the username from the api here
+  setLoginStatus = isLoggedIn => {
+    this.setState({
+      isLoggedIn
+    })
   }
 
   render() {
+
+      const value = {
+        setUserName: this.setUserName,
+        user_name: this.state.user_name,
+        setLoginStatus: this.setLoginStatus,
+        isLoggedIn: this.state.isLoggedIn
+      }
+
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <Header/>
-        </header>
-        <main className='App-main'>
-          <Switch>
-            <Route 
-              exact
-              path={'/'}
-              component={HomePage}
-              />
+      <ApiContext.Provider value={value}>
+        <div className='App'>
+          <header className='App-header'>
+            <Header/>
+          </header>
+          <main className='App-main'>
+            <Switch>
+              <Route 
+                exact
+                path={'/'}
+                component={HomePage}
+                />
 
               <PublicOnlyRoute
                 path={'/login'}
@@ -51,15 +65,16 @@ class App extends React.Component {
                 />
 
               <PrivateRoute 
-                path={'/:user_name'}
-                component={ProfilePage}
+                path={`/${this.state.user_name}/books`}
+                component={ProfilePage}/>
+                    
+              <Route 
+                component={NotFoundPage}
                 />
-                <Route 
-                  component={NotFoundPage}
-                  />
-          </Switch>
-        </main>
-      </div>
+            </Switch>
+          </main>
+        </div>
+      </ApiContext.Provider>
     )
   }
 }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Search from '../Search/SearchForm';
 import SearchResults from '../Search/SearchResults';
+import config from '../../config'
+import ApiContext from '../../ApiContext';
+
 
 class HomePage extends Component {
     constructor(props){
@@ -8,26 +11,22 @@ class HomePage extends Component {
 
         this.state = {
             searchTerm: '',
-            printType: 'all',
+            printType: 'books',
             bookType: 'no-filter',
             bookResults: [],
             err: 'null',
-            myBooks: [],
+            addBook: {}
         }
     }
+
+    static contextType = ApiContext;
 
     setSearchTerm(searchTerm){
         this.setState({
             searchTerm
         })
-        console.log(searchTerm)
     }
 
-    setPrintType(printType){
-        this.setState({
-            printType
-        })
-    }
 
     setBookType(bookType){
         this.setState({
@@ -35,14 +34,16 @@ class HomePage extends Component {
         })
     }
 
+    
+
     handleSubmitSearch(e){
         e.preventDefault();
 
         let filter = (this.state.bookType !== 'no-filter') ? ('&filter='+this.state.bookType):"";
-        let key = ''
+        let key = config.REACT_APP_API_KEY
         let url = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}&printType=${this.state.printType}${filter}&key=${key}`;
         console.log(url)
-
+        
         fetch(url)
             .then(res => {
                 if(!res.ok){
@@ -52,7 +53,6 @@ class HomePage extends Component {
             })
 
             .then(data => {
-                console.log(data)
 
                 this.setState({
                     bookResults: data.items
@@ -66,11 +66,9 @@ class HomePage extends Component {
             })
     }
 
-    setAddBook(book){
-        this.setState({
-            myBooks: book
-        })
-    }
+    
+    
+   
 
     render(){
         console.log(this.state)
@@ -80,14 +78,11 @@ class HomePage extends Component {
                 <Search
                     handleSubmitSearch={e => this.handleSubmitSearch(e)}
                     setSearchTerm={searchTerm => this.setSearchTerm(searchTerm)}
-                    setPrintType={printType => this.setPrintType(printType)}
                     setBookType={bookType => this.setBookType(bookType)}
                 />
 
                 <SearchResults
                     bookResults={this.state.bookResults}
-                    addBook={this.handleAddBook}
-                    removeBook={this.handleRemoveBook}
                 />
 
                 

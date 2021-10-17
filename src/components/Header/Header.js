@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import TokenService from '../../services/token-service';
+import ApiContext from '../../ApiContext'
+import './Header.css'
 
 export default class Header extends Component{
+
+    static contextType = ApiContext;
     handleLogoutClick = () => {   
         TokenService.clearAuthToken() 
+        const isLoggedIn = false
+        this.context.setLoginStatus(isLoggedIn)
     }
 
+    
     renderLogoutLink() {
+        const { user_name } = this.context;
         return (
             <div className='Header-logged-in'>
-                <Link
-                    onClick={this.handleLogoutClick}
-                    to='/'>
-                        Logout
-                </Link>
+                
+                    <NavLink
+                        onClick={this.handleLogoutClick}
+                        to='/'>
+                            <button className='logout-btn'>
+                                Logout
+                            </button>
+                    </NavLink>
+               
+                    <NavLink
+                        to={`/${user_name}/books`}>
+                            <button className='my-books-btn'>
+                                My Books
+                            </button>
+                    </NavLink>
+                
             </div>
         )
     }
@@ -22,25 +41,35 @@ export default class Header extends Component{
     renderLoginLink() {
         return (
             <div className='Header-not-logged-in'>
-                <Link
-                    to='/register'>
-                        Register
-                </Link>
-                <Link
-                    to='/login'>
-                        Log In
-                </Link>
+                
+                    <NavLink
+                        to='/register'>
+                            <button className='register-btn'>
+                            Register
+                            </button>
+                    </NavLink>
+                
+                    <NavLink
+                        to='/login'>
+                            <button className='/login'>
+                                Log In
+                            </button>
+                    </NavLink>
+                
+                
             </div>
         )
     }
 
     render() {
+        
         return (
             <nav className='Header'>
                 <h1>
-                    <Link to='/'>
+                    <NavLink to='/'>
                         BookWorm
-                    </Link>
+                    </NavLink>
+                    
                 </h1>
                 {TokenService.hasAuthToken()
                   ? this.renderLogoutLink()

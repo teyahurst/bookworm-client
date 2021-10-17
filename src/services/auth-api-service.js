@@ -1,6 +1,6 @@
 import config from '../config'
 
-const AuthApiService ={
+const AuthApiService = {
     postLogin(credentials) {
         return fetch(`${config.API_ENDPOINT}/api/auth/login`, {
             method: 'POST',

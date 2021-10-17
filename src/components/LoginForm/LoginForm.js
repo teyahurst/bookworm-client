@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
+import ApiContext from '../../ApiContext'
 
 export default class LoginForm extends Component {
+    static contextType = ApiContext;
     static defaultProps = {
         onLoginSuccess: () => {
         }
@@ -14,6 +16,9 @@ export default class LoginForm extends Component {
         event.preventDefault()
         this.setState({ error: null })
         const { user_name, password } = event.target
+        this.context.setUserName(user_name.value)
+        const isLoggedIn = true
+        
 
         AuthApiService.postLogin({
             user_name: user_name.value,
@@ -23,11 +28,14 @@ export default class LoginForm extends Component {
             user_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
-            this.props.onLoginSuccess()
+            this.context.setLoginStatus(isLoggedIn)
+            this.props.history.push(`/`)
         })
         .catch(res => {
             this.setState({ error: res.error })
+            
         })
+        
     }
 
     render() {
