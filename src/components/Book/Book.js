@@ -11,7 +11,7 @@ export default class Book extends React.Component {
         console.log(book)
         const { user_name } = this.context
 
-        fetch(`${config.API_ENDPOINT}/${user_name}/books`, {
+        fetch(`${config.REACT_APP_BASE_URL}/${user_name}/books`, {
             method: 'POST',
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -45,7 +45,7 @@ export default class Book extends React.Component {
         const { user_name } = this.context 
         const bookId = this.props.id
 
-        fetch(`${config.API_ENDPOINT}/${user_name}/books/${bookId}`, {
+        fetch(`${config.REACT_APP_BASE_URL}/${user_name}/books/${bookId}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
