@@ -16,7 +16,7 @@ function SearchResults(props){
                             key={book.etag}
                             title={book.volumeInfo.title}
                             img={book.volumeInfo.imageLinks?.thumbnail}
-                            author={book.volumeInfo.authors[0]}
+                            author={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             />
                     </div>
