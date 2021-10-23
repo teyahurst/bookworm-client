@@ -20,9 +20,9 @@ export default class Book extends React.Component {
             body: JSON.stringify(book)
         })
         .then(res =>  
-                this.props.history.push(`${user_name}/books`))
+                this.props.history.push(`${res.user_name}/books`))
 
-
+        }
 
     handleAddBook = () => {
         const { user_name } = this.context
@@ -60,7 +60,7 @@ export default class Book extends React.Component {
 
     }
 
-    render(){
+    render() {
         const { title, img, author, description, date_added } = this.props
     return (
         <li className='book'>
