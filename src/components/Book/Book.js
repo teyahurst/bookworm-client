@@ -19,8 +19,8 @@ export default class Book extends React.Component {
             },
             body: JSON.stringify(book)
         })
-        .then(res =>  res.json())
-    }
+        .then(res =>  
+                this.props.history.push(`${user_name}/books`))
 
 
 
