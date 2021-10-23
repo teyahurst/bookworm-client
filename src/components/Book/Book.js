@@ -33,7 +33,7 @@ export default class Book extends React.Component {
             title: this.props.title,
             author: this.props.author[0],
             description: this.props.description,
-            img: this.props.img
+            urltoimage: this.props.img
 
         }
         
