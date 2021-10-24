@@ -20,7 +20,8 @@ export default class Book extends React.Component {
             body: JSON.stringify(book)
         })
         .then(res =>  
-                this.props.history.push(`${res.user_name}/books`))
+                TokenService.saveAuthToken(res.authToken),
+                this.props.history.push(`/${user_name}/books`))
 
         }
 
