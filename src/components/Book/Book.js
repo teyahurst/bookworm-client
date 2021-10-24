@@ -19,9 +19,15 @@ export default class Book extends React.Component {
             },
             body: JSON.stringify(book)
         })
-        .then(res =>  
-                TokenService.saveAuthToken(res.authToken),
-                this.props.history.push(`/${user_name}/books`))
+        .then(res => {
+            if(!res.ok)
+                return res.json().then(e => Promise.reject(e))
+            return res.json()
+        })
+        .then(books => {
+            this.props.history.push(`/${user_name}/books`)
+        })
+        .finally(alert("Book Added"))
 
         }
 
