@@ -25,7 +25,7 @@ export default class Book extends React.Component {
             return res.json()
         })
         .finally(alert("Book Added"))
-        .then(this.props.history.push(`/${user_name}/books`))
+        
 
         }
 
