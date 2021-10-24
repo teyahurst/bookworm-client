@@ -41,7 +41,7 @@ export default class ProfilePage extends Component {
                         title={book.title}
                         author={book.author}
                         description={book.description}
-                        img={book.urltoimage}
+                        img={book.img}
                         />
                         
                 </div>
