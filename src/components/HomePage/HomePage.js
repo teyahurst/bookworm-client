@@ -41,7 +41,7 @@ class HomePage extends Component {
 
         let filter = (this.state.bookType !== 'no-filter') ? ('&filter='+this.state.bookType):"";
         let key = config.REACT_APP_API_KEY
-        let url = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}&printType=${this.state.printType}${filter}&key=${key}`;
+        let url = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}&printType=${this.state.printType}${filter}&maxResults=40&key=${key}`;
         
         fetch(url)
             .then(res => {
