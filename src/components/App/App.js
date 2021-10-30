@@ -14,7 +14,8 @@ import ApiContext from '../../ApiContext';
 class App extends React.Component {
   state = {
     user_name: '',
-    isLoggedIn: false
+    isLoggedIn: false,
+    userBooks: []
   }
 
 
@@ -31,13 +32,21 @@ class App extends React.Component {
     })
   }
 
+  setUserBooks = books => {
+    this.setState({
+      userBooks: books
+    })
+  }
+
   render() {
 
       const value = {
         setUserName: this.setUserName,
         user_name: this.state.user_name,
         setLoginStatus: this.setLoginStatus,
-        isLoggedIn: this.state.isLoggedIn
+        isLoggedIn: this.state.isLoggedIn,
+        userBooks: this.state.userBooks,
+        setUserBooks: this.setUserBooks
       }
 
     return (

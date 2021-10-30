@@ -8,7 +8,7 @@ export default class Book extends React.Component {
     
 
     addBook(book){
-        console.log(book)
+
         const { user_name } = this.context
 
         fetch(`${config.API_ENDPOINT}/${user_name}/books`, {

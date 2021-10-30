@@ -4,25 +4,17 @@ import config from '../../config'
 import Book from '../Book/Book'
 
 export default class ProfilePage extends Component {
-    constructor(props){
-        super(props)
-
-        this.state = {
-            myBooks: [],
-        }
-    }
+    
     
 
     static contextType = ApiContext;
     componentDidMount(){
-        const { user_name } = this.context
+        const { user_name, setUserBooks } = this.context
         
         fetch(`${config.API_ENDPOINT}/${user_name}/books`)
             .then(res => res.json())
             .then(books => {
-                this.setState({
-                    myBooks: books,
-                })
+                setUserBooks(books)
             })
         
     }
@@ -30,13 +22,13 @@ export default class ProfilePage extends Component {
 
 
    render() {
-       console.log(this.state.myBooks)
+       const { userBooks } = this.context
        return (
            <div className='Profile-Page'>
 
-               {this.state.myBooks.map(book => 
+               {userBooks.map(book => 
                <div>
-                   <Book
+                   <Book key={book.id}
                         id={book.id}
                         title={book.title}
                         author={book.author}
