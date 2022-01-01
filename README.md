@@ -17,4 +17,4 @@ The technology used to build this app was:
     HTML, CSS, JavaScript, React, NodeJs, Express, PostgreSQL. 
 
 The other notable technology used in developement for testing was: 
-    Mocha, Chai, Jest.
+    Mocha, Chai, Jest
