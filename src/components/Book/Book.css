@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Roboto+Slab:wght@500&display=swap');
+
+
+.book{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding-left: 4%;
+    margin-block-start: 0;
+    
+}
+
+.bookResults-book{
+    width: 90%;
+    margin-top: 1%;
+    
+}
+
+img {
+    margin: 0 15px 0 0;
+    max-width: 100px;
+    max-height: 100px;
+    margin-left: 25%;
+}
+
+.description {
+    height: 5rem;
+    overflow: scroll;
+}
+
+@media all and (min-width: 900px){
+    .bookResults-book{
+        flex-direction: row;
+        width: 25%;
+        
+    }
+
+    .book{
+        height: 35rem;
+    }
+
+    .description{
+        height: 10rem;
+    }
+}

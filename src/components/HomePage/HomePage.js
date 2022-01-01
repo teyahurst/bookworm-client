@@ -3,6 +3,7 @@ import Search from '../Search/SearchForm';
 import SearchResults from '../Search/SearchResults';
 import config from '../../config'
 import ApiContext from '../../ApiContext';
+import './HomePage.css'
 
 
 class HomePage extends Component {

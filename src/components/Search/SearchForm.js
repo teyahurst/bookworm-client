@@ -1,21 +1,16 @@
 import React from 'react';
+import './SearchForm.css';
 
 function Search(props){
     return (
-        <form onSubmit={e => props.handleSubmitSearch(e)}>
-            {/*Search Box */}
-
-            <div className='Search-Box'>
-                <label>Search</label>
-                <input type='text' onChange={e => props.setSearchTerm(e.target.value)} required />
-                <input type='submit' />
-            </div>
-
+        <form onSubmit={e => props.handleSubmitSearch(e)} className='search-form'>
+           
             {/* filters */}
+            
             <div className='Filter-Box'>
                 
 
-                <label htmlFor='Booktype'>Book Type: </label>
+                
                 <select id='bookType' onChange={e => props.setBookType(e.target.value)}>
                     <option value='no-filter'>No Filter</option>
                     <option value='partial'>Partial</option>
@@ -23,8 +18,19 @@ function Search(props){
                     <option value='free-ebooks'>Free E-Books</option>
                     <option value='paid-ebooks'>Paid E-Books</option>
                     <option value='ebooks'>All E-Books</option>
-                </select>
+                </select>      
+                
             </div>
+
+             {/*Search Box */}
+
+             <div className='Search-Box'>
+                <input className='Search-txt' type='text' placeholder='search'onChange={e => props.setSearchTerm(e.target.value)} required />
+                
+            </div>
+
+            <button type='submit' className='submit-btn'>Submit</button>
+
         </form>
     )
 }

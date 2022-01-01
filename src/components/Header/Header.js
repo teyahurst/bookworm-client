@@ -51,7 +51,7 @@ export default class Header extends Component{
                 
                     <NavLink
                         to='/login'>
-                            <button className='/login'>
+                            <button className='login-btn'>
                                 Log In
                             </button>
                     </NavLink>
@@ -70,10 +70,13 @@ export default class Header extends Component{
                         BookWorm
                     </NavLink>
                     
-                </h1>
+                
                 {TokenService.hasAuthToken()
                   ? this.renderLogoutLink()
                   : this.renderLoginLink()}
+
+                
+                </h1>
             </nav>
         )
     }

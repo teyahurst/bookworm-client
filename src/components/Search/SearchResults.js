@@ -1,5 +1,6 @@
 import React from 'react';
 import Book from '../Book/Book';
+import './SearchResults.css'
 
 function SearchResults(props){
 
@@ -9,7 +10,7 @@ function SearchResults(props){
         <ul className='book-list'>
             {props.bookResults.map((book, i) => {
                 return (
-                    <div className={i} key={i}>    
+                    <div className='bookResults-book' key={i}>    
                         <Book
                             id={i}
                             key={book.etag}

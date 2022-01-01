@@ -50,7 +50,7 @@ class App extends React.Component {
       }
 
     return (
-      <ApiContext.Provider value={value}>
+      <ApiContext.Provider value={value}> 
         <div className='App'>
           <header className='App-header'>
             <Header/>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import ApiContext from '../../ApiContext'
+import './LoginForm.css'
 
 export default class LoginForm extends Component {
     static contextType = ApiContext;
@@ -41,41 +42,45 @@ export default class LoginForm extends Component {
     render() {
         const { error } = this.state
         return (
-            <form 
-                className='LoginForm'
-                onSubmit={this.handleSubmitJwtAuth}
-                >
-                    <div role='alert'>
-                        {error && <p className='red'>{error}</p>}
-                    </div>
+            <div className='login-form'>
+                <div className='login-form-header'>
+                    <h2>Login</h2>
+                </div>
 
-                    <div className='user_name'>
-                        <label htmlFor='LoginForm_user_name'>
-                            Username
-                        </label>
+                    <form 
+                        className='LoginForm'
+                        onSubmit={this.handleSubmitJwtAuth}
+                        >
+                            <div role='alert'>
+                                {error && <p className='red'>{error}</p>}
+                            </div>
 
-                        <input 
-                            name='user_name'
-                            id='LoginForm_user_name'>
-                        </input>
-                    </div>
+                            <div className='user_name'>
+                                
 
-                    <div className='password'>
-                        <label htmlFor='LoginForm_password'>
-                            Password
-                        </label>
-                        
-                        <input 
-                            name='password'
-                            type='password'
-                            id='LoginForm_password'>
-                        </input>
-                    </div>
+                                <input 
+                                    name='user_name'
+                                    id='LoginForm_user_name'
+                                    placeholder='User Name'>
+                                </input>
+                            </div>
 
-                    <button type='submit'>
-                        Login
-                    </button>
-            </form>
+                            <div className='password'>
+                                
+                                
+                                <input 
+                                    name='password'
+                                    type='password'
+                                    id='LoginForm_password'
+                                    placeholder='Password'>
+                                </input>
+                            </div>
+
+                            <button type='submit'>
+                                Login
+                            </button>
+                    </form>
+            </div>
         )
     }
 }

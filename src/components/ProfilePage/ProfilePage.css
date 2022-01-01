@@ -1,0 +1,29 @@
+
+
+
+.Profile-Page .add-book-btn{
+    display: none;
+}
+
+.Profile-Page{
+    margin-left: 5%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Profile-Page-Booklist{
+    margin-top: 2%;
+}
+@media all and (min-width: 900px){
+    .Profile-Page{
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+
+    .Profile-Page-Booklist{
+        width: 25%;
+    }
+}
+

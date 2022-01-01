@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Roboto+Slab:wght@500&display=swap');
+
+ul{
+    width: 90%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-list .remove-book-btn{
+    display: none;
+}
+
+@media all and (min-width: 900px) {
+    ul.book-list{
+        width: 97%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+
+}
+

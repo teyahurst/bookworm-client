@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400&family=Roboto+Slab:wght@500&display=swap');
+
+
+
+.registration-form{
+    text-align: center;
+    font-size: 18px;
+    padding: 1%;
+    border: 1px solid rgb(199, 198, 198);
+    border-radius: 5px;
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 75%;
+
+}
+
+.form-header{
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.RegistrationForm input{
+    width: 50%;
+    height: 25px;
+    margin-bottom: 2%;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Roboto Slab', serif;
+}
+
+@media all and (min-width: 900px) {
+    .registration-form{
+        width: 25%;
+        margin-left: 36%;
+    }
+}

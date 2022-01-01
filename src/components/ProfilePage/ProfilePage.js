@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
 import Book from '../Book/Book'
+import './ProfilePage.css'
 
 export default class ProfilePage extends Component {
     
@@ -24,10 +25,12 @@ export default class ProfilePage extends Component {
    render() {
        const { userBooks } = this.context
        return (
+        
+
            <div className='Profile-Page'>
 
                {userBooks.map(book => 
-               <div>
+               <div className='Profile-Page-Booklist'>
                    <Book key={book.id}
                         id={book.id}
                         title={book.title}

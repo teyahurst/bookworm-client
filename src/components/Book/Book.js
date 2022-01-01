@@ -2,6 +2,7 @@ import React from 'react'
 import ApiContext from '../../ApiContext'
 import config from '../../config'
 import TokenService from '../../services/token-service'
+import './Book.css'
 
 export default class Book extends React.Component {
     static contextType = ApiContext
@@ -76,8 +77,10 @@ export default class Book extends React.Component {
             <p className='description'>{description}</p>
             <p>{date_added}</p>
             
-            <button onClick={this.handleAddBook}>Add Book</button>
-            <button onClick={this.handleRemoveBook}>Remove Book</button>
+            <div className='buttons'>
+                <button className='add-book-btn' onClick={this.handleAddBook}>Add Book</button>
+                <button className='remove-book-btn' onClick={this.handleRemoveBook}>Remove Book</button>
+            </div>
         </li>
         )
     }
