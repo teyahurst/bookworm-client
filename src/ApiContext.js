@@ -1,5 +1,6 @@
 import React from 'react'
 
 export default React.createContext({
-    user_name: ''
+    user_name: '',
+    userBooks: [],
 })
