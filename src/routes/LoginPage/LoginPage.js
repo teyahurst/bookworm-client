@@ -6,7 +6,7 @@ import LoginForm from '../../components/LoginForm/LoginForm'
 export default class LoginPage extends Component {
 
 
-    static contextType = ApiContext;
+    static contextType = ApiContext
 
     handleLoginSuccess = () => {
         
