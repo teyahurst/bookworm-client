@@ -1,5 +1,5 @@
-import React from 'react';
-import './SearchForm.css';
+import React from 'react'
+import './SearchForm.css'
 
 function Search(props){
     return (
@@ -35,4 +35,4 @@ function Search(props){
     )
 }
 
-export default Search;
+export default Search

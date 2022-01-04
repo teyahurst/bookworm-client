@@ -1,5 +1,5 @@
-import React from 'react';
-import Book from '../Book/Book';
+import React from 'react'
+import Book from '../Book/Book'
 import './SearchResults.css'
 
 function SearchResults(props){
@@ -26,4 +26,4 @@ function SearchResults(props){
     )
 }
 
-export default SearchResults;
+export default SearchResults

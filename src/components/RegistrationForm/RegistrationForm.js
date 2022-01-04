@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import AuthApiService from '../../services/auth-api-service'
 import './RegistrationForm.css'
 

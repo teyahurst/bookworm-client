@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import TokenService from '../../services/token-service';
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+import TokenService from '../../services/token-service'
 import ApiContext from '../../ApiContext'
 import './Header.css'
 
